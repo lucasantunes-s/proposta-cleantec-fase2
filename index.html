@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epicora × CleanTec — Proposta · Smart CleanControl</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config={theme:{extend:{
+    colors:{ink:'#08080a',graphite:'#141418',roxo:{DEFAULT:'#6100ff',soft:'#8a4bff',deep:'#2a0a78',glow:'#7a2bff'},verde:'#14ffb9'},
+    fontFamily:{display:['"Space Grotesk"','sans-serif'],sans:['Alexandria','Arial','sans-serif']}
+  }}}
+</script>
+<style>
+  html,body{background:#08080a;color:#fff;-webkit-font-smoothing:antialiased;font-family:'Alexandria',sans-serif}
+  .deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory}
+  .deck{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.16) transparent}
+  .deck::-webkit-scrollbar{width:7px}
+  .deck::-webkit-scrollbar-track{background:transparent}
+  .deck::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:99px}
+  .slide{height:100vh;scroll-snap-align:start;position:relative;overflow:hidden;padding:9vh 8vw;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(160deg,#101016,#08080a)}
+  .slide>*{position:relative;z-index:2}
+  .slide::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.022;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .bg-graphite{background:#101016!important}
+  .bg-pure{background:#050506!important}
+  .glass{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:18px;box-shadow:0 12px 44px -28px rgba(0,0,0,.6)}
+  .glass-roxo{background:rgba(97,0,255,.14);border:1px solid rgba(138,75,255,.34);border-radius:18px;box-shadow:0 16px 50px -30px rgba(97,0,255,.45)}
+  .dots::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:38px 38px;-webkit-mask-image:radial-gradient(120% 90% at 50% 50%,#000 35%,transparent 78%);mask-image:radial-gradient(120% 90% at 50% 50%,#000 35%,transparent 78%)}
+  .glow{position:absolute;border-radius:9999px;filter:blur(130px);z-index:0;pointer-events:none}
+  .eyebrow{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk';font-size:13px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:#a98bff}
+  .eyebrow::before{content:"";width:34px;height:1px;background:#8a4bff}
+  .logo{position:absolute;top:5vh;left:8vw;height:24px;z-index:3;opacity:.92}
+  .pg{position:absolute;top:5vh;right:8vw;font-family:'Space Grotesk';font-size:13px;letter-spacing:2px;color:rgba(255,255,255,.38);z-index:3}
+  h1,h2,h3,.font-display{font-family:'Space Grotesk',sans-serif}
+  .preco{font-family:'Space Grotesk';font-weight:600;letter-spacing:-1px}
+  .tagverde{font-family:'Space Grotesk';font-size:clamp(10px,.8vw,12px);letter-spacing:2px;text-transform:uppercase;color:#14ffb9}
+  .num{font-family:'Space Grotesk';font-weight:600;color:#a98bff;font-size:clamp(11px,.9vw,14px);letter-spacing:1px}
+  .step{font-family:'Space Grotesk';font-weight:600;font-size:clamp(22px,2.2vw,36px);color:#8a4bff;line-height:1}
+  @page{size:1920px 1080px;margin:0}
+  @media print{html,body{background:#000}.deck{height:auto;overflow:visible}.slide{width:1920px;height:1080px;page-break-after:always;page-break-inside:avoid}.slide:last-child{page-break-after:auto}.pg,.navhint{display:none!important}.slide>*{opacity:1!important;transform:none!important}.slide::after,.dots::before{display:none!important}.slide *{box-shadow:none!important}.glass,.glass-roxo{box-shadow:none!important}}
+  .navhint{position:fixed;bottom:18px;right:18px;font-size:11px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px);padding:7px 13px;border-radius:999px;letter-spacing:1px;z-index:99;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+  .price-lock{position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;background:rgba(8,8,10,.55);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);transition:opacity .6s ease}
+  .price-lock.unlocked{opacity:0;pointer-events:none}
+  @media print{.price-lock{display:none!important}}
+</style>
+</head>
+<body class="font-sans">
+<div class="navhint">↑ ↓ ou scroll</div>
+<div class="deck">
+
+
+  <!-- 01 · CAPA -->
+  <section class="slide dots !items-center !justify-center text-center">
+    <div class="glow" style="width:52vw;height:52vw;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#6100ff,transparent 62%);opacity:.4"></div>
+    <img src="epicora-horizontal-branca.svg" alt="Epicora" class="w-[34vw] max-w-[620px] mx-auto mb-[6vh]">
+    <div class="eyebrow !justify-center mb-[2vh]" style="justify-content:center">Proposta comercial</div>
+    <h1 class="font-semibold text-[clamp(30px,4vw,64px)] tracking-[-2px] leading-[1.05]">Smart CleanControl — Melhorias</h1>
+    <p class="text-white/55 font-light text-[clamp(14px,1.2vw,19px)] mt-[2.5vh]">CleanTec do Brasil</p>
+    <p class="font-display text-white/40 text-[clamp(12px,1vw,15px)] tracking-[2px] mt-[1vh]">09/09/2026 · VÁLIDA ATÉ 24/09/2026</p>
+  </section>
+
+  <!-- 02 · O QUE MUDA -->
+  <section class="slide bg-graphite"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">02</span>
+    <div class="eyebrow mb-[2.5vh]">O que muda</div>
+    <h2 class="font-semibold text-[clamp(24px,3.2vw,52px)] tracking-[-1.5px] leading-[1.06] max-w-[30ch] mb-[5vh]">Quatro frentes sobre o sistema que já está em produção<span class="text-roxo-soft">.</span></h2>
+    <div class="grid grid-cols-4 gap-[1.2vw]">
+      <div class="glass p-[3.5vh_1.5vw]"><div class="step mb-[1.5vh]">1</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[.8vh]">Documentos</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Alvará, ISO, boletim técnico, ANVISA e FDS dentro do sistema. Cada cliente vê só o que a CleanTec liberar.</p></div>
+      <div class="glass p-[3.5vh_1.5vw]"><div class="step mb-[1.5vh]">2</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[.8vh]">Microbiologia por tipo</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Limites separados para pré-operacional e operacional. O alerta de limite excedido deixa de dar falso positivo.</p></div>
+      <div class="glass p-[3.5vh_1.5vw]" style="border-top:2px solid #14ffb9"><div class="step mb-[1.5vh]" style="color:#14ffb9">3</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[.8vh]">Simulação de Custo</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Trocar um produto por outro, ou por vários, e ver o efeito no custo do período. Sem planilha e sem pedir para a Epicora.</p></div>
+      <div class="glass p-[3.5vh_1.5vw]"><div class="step mb-[1.5vh]">4</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[.8vh]">Perfil Coordenador</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Um login de leitura para várias unidades. Resolve o diretor do GTF, hoje cadastrado como Técnico.</p></div>
+    </div>
+  </section>
+
+  <!-- 03 · DOCUMENTOS -->
+  <section class="slide bg-pure"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">03</span>
+    <div class="glow" style="width:40vw;height:40vw;right:-12vw;top:-14vw;background:radial-gradient(circle,#6100ff,transparent 60%);opacity:.3"></div>
+    <div class="eyebrow mb-[2.5vh]">Frente 1 · Documentos</div>
+    <h2 class="font-semibold text-[clamp(24px,3.2vw,52px)] tracking-[-1.5px] leading-[1.06] max-w-[30ch] mb-[5vh]">O cliente baixa o documento sozinho, sem e-mail nem WhatsApp<span class="text-roxo-soft">.</span></h2>
+    <div class="grid grid-cols-3 gap-[1.2vw]">
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">1</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">A CleanTec sobe</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Documentos da empresa e documentos por produto, no painel administrativo. PDF, imagem, Word ou Excel, até 10 MB.</p></div>
+      <div class="glass p-[3.5vh_1.6vw]" style="border-top:2px solid #14ffb9"><div class="step mb-[1.5vh]" style="color:#14ffb9">2</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">A CleanTec escolhe quem vê</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">No cadastro de cada cliente: se vê os documentos da empresa, se vê os de produto, e quais produtos. A seleção é manual, com "selecionar todos".</p></div>
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">3</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">O cliente consulta</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Aba Documentos no painel dele: uma pasta por produto, busca, visualização no navegador e download.</p></div>
+    </div>
+  </section>
+
+  <!-- 04 · MICROBIOLOGIA -->
+  <section class="slide bg-graphite"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">04</span>
+    <div class="eyebrow mb-[2.5vh]">Frente 2 · Microbiologia por tipo de análise</div>
+    <h2 class="font-semibold text-[clamp(24px,3.2vw,52px)] tracking-[-1.5px] leading-[1.06] max-w-[30ch] mb-[5vh]">Pré-operacional e operacional deixam de usar a mesma régua<span class="text-roxo-soft">.</span></h2>
+    <div class="grid grid-cols-3 gap-[1.2vw]">
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">1</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">Dois conjuntos de limites</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Por unidade e por organismo, um para pré-operacional e um para operacional. Todo laudo novo informa o tipo.</p></div>
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">2</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">Gráficos, matriz e alertas</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Dashboards, matriz de conformidade, exportações e o e-mail de alerta passam a respeitar o tipo de cada laudo.</p></div>
+      <div class="glass-roxo p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">3</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">O histórico é recalculado</h3><p class="text-white/70 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Os laudos já registrados recebem um tipo e a conformidade é refeita. Relatórios antigos podem divergir. Roda em janela combinada, com validação da CleanTec.</p></div>
+    </div>
+    <p class="text-white/45 font-light text-[clamp(11px,.9vw,14px)] mt-[3vh]">Fora desta fase: microbiologia de produto, com limites por espécie. Fica para a etapa seguinte.</p>
+  </section>
+
+  <!-- 05 · SIMULAÇÃO -->
+  <section class="slide bg-pure"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">05</span>
+    <div class="glow" style="width:40vw;height:40vw;left:-12vw;bottom:-14vw;background:radial-gradient(circle,#6100ff,transparent 60%);opacity:.3"></div>
+    <div class="eyebrow mb-[2.5vh]">Frente 3 · Simulação de Custo</div>
+    <h2 class="font-semibold text-[clamp(24px,3.2vw,52px)] tracking-[-1.5px] leading-[1.06] max-w-[30ch] mb-[5vh]">Trocar um produto e ver o custo antes de trocar de verdade<span class="text-roxo-soft">.</span></h2>
+    <div class="grid grid-cols-3 gap-[1.2vw]">
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">1</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">Parte do consumo do mês</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Tela nova no painel da unidade com o consumo do período por produto e processo, no preço da tabela vigente.</p></div>
+      <div class="glass p-[3.5vh_1.6vw]" style="border-top:2px solid #14ffb9"><div class="step mb-[1.5vh]" style="color:#14ffb9">2</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">O técnico ajusta</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Troca o produto de um processo, inclusive por vários, muda quantidade ou preço, remove ou adiciona um uso. O sistema soma e compara.</p></div>
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">3</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">Lê a economia e exporta</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Custo atual, simulado e variação, com resumo por produto. Sai em PDF e CSV. Nada é gravado no sistema.</p></div>
+    </div>
+    <p class="text-white/45 font-light text-[clamp(11px,.9vw,14px)] mt-[3vh]">A quantidade do produto substituto é informada por quem simula. O sistema não converte rendimento nem diluição.</p>
+  </section>
+
+  <!-- 06 · COORDENADOR -->
+  <section class="slide bg-graphite"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">06</span>
+    <div class="eyebrow mb-[2.5vh]">Frente 4 · Perfil Coordenador</div>
+    <h2 class="font-semibold text-[clamp(24px,3.2vw,52px)] tracking-[-1.5px] leading-[1.06] max-w-[30ch] mb-[5vh]">Um login para acompanhar várias unidades, só leitura<span class="text-roxo-soft">.</span></h2>
+    <div class="grid grid-cols-3 gap-[1.2vw]">
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">1</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">A CleanTec cadastra</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Perfil novo no painel administrativo, vinculado às unidades que a CleanTec escolher, mesmo de grupos diferentes.</p></div>
+      <div class="glass p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">2</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">Ele navega e só lê</h3><p class="text-white/60 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Escolhe a unidade, vê dashboard, consumo, microbiologia, produtos e documentos, exporta. Não cria, não edita, não registra.</p></div>
+      <div class="glass-roxo p-[3.5vh_1.6vw]"><div class="step mb-[1.5vh]">3</div><h3 class="font-medium text-[clamp(14px,1.2vw,19px)] mb-[1vh]">O diretor do GTF migra</h3><p class="text-white/70 font-light text-[clamp(11px,.95vw,14px)] leading-[1.6]">Hoje ele é Técnico para transitar entre as quatro unidades, com poder de escrita indevido. Na entrega vira Coordenador e o acesso de técnico é revogado.</p></div>
+    </div>
+  </section>
+
+  <!-- 07 · CONFIRMAÇÕES -->
+  <section class="slide bg-pure"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">07</span>
+    <div class="eyebrow mb-[2.5vh]">O que precisamos que vocês confirmem</div>
+    <h2 class="font-semibold text-[clamp(24px,3.2vw,52px)] tracking-[-1.5px] leading-[1.06] max-w-[30ch] mb-[4vh]">Cinco respostas curtas. Nenhuma muda o valor<span class="text-roxo-soft">.</span></h2>
+    <div class="space-y-2.5 max-w-[74vw]">
+      <div class="glass p-4 flex gap-4 items-start"><span class="num mt-[2px]">1</span><p class="text-white/75 font-light text-[clamp(11px,.95vw,14px)] leading-[1.55]"><span class="text-white font-normal">Documentos.</span> Quais perfis do cliente veem a aba? Sugestão: Supervisor da Unidade, Controlador Global e Coordenador.</p></div>
+      <div class="glass p-4 flex gap-4 items-start"><span class="num mt-[2px]">2</span><p class="text-white/75 font-light text-[clamp(11px,.95vw,14px)] leading-[1.55]"><span class="text-white font-normal">Microbiologia.</span> Que tipo aplicar aos laudos já registrados: todos pré-operacional, todos operacional, ou lista da CleanTec?</p></div>
+      <div class="glass p-4 flex gap-4 items-start"><span class="num mt-[2px]">3</span><p class="text-white/75 font-light text-[clamp(11px,.95vw,14px)] leading-[1.55]"><span class="text-white font-normal">Simulação.</span> Base padrão da tela: consumo previsto ou realizado? Sugestão: previsto.</p></div>
+      <div class="glass p-4 flex gap-4 items-start"><span class="num mt-[2px]">4</span><p class="text-white/75 font-light text-[clamp(11px,.95vw,14px)] leading-[1.55]"><span class="text-white font-normal">Simulação.</span> Quem acessa a tela, já que mostra preço unitário? Sugestão: Administrador, Técnico, Supervisor da Unidade e Coordenador.</p></div>
+      <div class="glass p-4 flex gap-4 items-start"><span class="num mt-[2px]">5</span><p class="text-white/75 font-light text-[clamp(11px,.95vw,14px)] leading-[1.55]"><span class="text-white font-normal">Coordenador.</span> Ele vê o Consumo Consolidado, que mostra custo em R$? E Estoque Atual e Movimentações?</p></div>
+    </div>
+  </section>
+
+  <!-- 08 · DEMONSTRAÇÃO -->
+  <section class="slide bg-pure"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">08</span>
+    <div class="glow" style="width:44vw;height:44vw;right:-14vw;top:-18vw;background:radial-gradient(circle,#6100ff,transparent 60%);opacity:.3"></div>
+    <div class="eyebrow mb-[2.5vh]">Demonstração</div>
+    <h2 class="font-semibold text-[clamp(24px,3.2vw,52px)] tracking-[-1.5px] leading-[1.06] max-w-[30ch] mb-[3.5vh]">As quatro frentes funcionando, na tela<span class="text-roxo-soft">.</span></h2>
+    <div class="glass p-[1vh_1vw] max-w-[68vw] mx-auto w-full">
+      <video id="demoVideo" controls preload="metadata" playsinline poster="demo-poster.jpg" style="width:100%;max-height:62vh;border-radius:12px;display:block;background:#000">
+        <source src="demo-funcionalidades.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p id="demoHint" class="text-white/45 font-light text-[clamp(11px,.9vw,14px)] mt-[2vh] text-center">O investimento, no próximo slide, é liberado ao fim da demonstração.</p>
+  </section>
+
+  <!-- 09 · INVESTIMENTO -->
+  <section class="slide bg-graphite" id="slideInvestimento"><img class="logo" src="epicora-horizontal-branca.svg"><span class="pg">09</span>
+    <div class="price-lock" id="priceLock">
+      <div class="glass-roxo p-[5vh_3vw] text-center max-w-[46vw]">
+        <div class="eyebrow !justify-center mb-[2vh]" style="justify-content:center">Investimento</div>
+        <p class="font-display font-semibold text-[clamp(18px,1.8vw,28px)] leading-[1.3]">Assista à demonstração para liberar o investimento.</p>
+        <p class="text-white/50 font-light text-[clamp(12px,1vw,15px)] mt-[1.5vh]">O valor faz sentido depois de ver as quatro frentes funcionando.</p>
+        <button id="goDemo" class="mt-[3vh] font-display font-semibold text-[clamp(12px,1vw,15px)] tracking-[1px] uppercase px-6 py-3 rounded-full" style="background:#6100ff;color:#fff;cursor:pointer">Ver a demonstração</button>
+      </div>
+    </div>
+    <div class="glow" style="width:44vw;height:44vw;left:-14vw;bottom:-18vw;background:radial-gradient(circle,#6100ff,transparent 60%);opacity:.3"></div>
+    <div class="eyebrow mb-[4vh]">Investimento</div>
+    <div class="grid grid-cols-[1fr_1.1fr] gap-[2vw] items-stretch">
+      <div class="glass-roxo p-[5vh_2.5vw] flex flex-col justify-center text-center">
+        <div class="tagverde mb-[2vh]">Quatro frentes · pacote fechado</div>
+        <div class="preco text-[clamp(40px,4.2vw,72px)]">R$ 11.600,00</div>
+        <p class="text-white/45 font-light text-[clamp(11px,.9vw,13px)] mt-[2.5vh]">Desenvolvimento, testes, migração do histórico e implantação incluídos · Válida até 24/09/2026</p>
+      </div>
+      <div class="grid grid-rows-3 gap-[1.2vw]">
+        <div class="glass p-[2.4vh_1.6vw]"><h3 class="font-medium text-[clamp(13px,1.1vw,17px)] mb-[.5vh]">Sem custo externo</h3><p class="text-white/55 font-light text-[clamp(11px,.9vw,14px)]">Roda na infraestrutura AWS e no banco que a CleanTec já tem. Nenhuma mensalidade nova.</p></div>
+        <div class="glass p-[2.4vh_1.6vw]"><h3 class="font-medium text-[clamp(13px,1.1vw,17px)] mb-[.5vh]">Não incluído</h3><p class="text-white/55 font-light text-[clamp(11px,.9vw,14px)]">Microbiologia de produto. Vínculo automático de documentos pela tabela de preço. Itens de maio que não voltaram a ser pedidos: importação por Excel, três organismos novos e tipo de justificativa.</p></div>
+        <div class="glass p-[2.4vh_1.6vw]"><h3 class="font-medium text-[clamp(13px,1.1vw,17px)] mb-[.5vh]">Segue sem custo</h3><p class="text-white/55 font-light text-[clamp(11px,.9vw,14px)]">Correções de defeito e ajustes já comprometidos, incluindo a inconsistência do consumo previsto após troca de produto no GTF, continuam pela sustentação.</p></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('in',e.isIntersecting)),{threshold:.4});
+  slides.forEach(s=>io.observe(s));
+
+  // Trava do investimento: libera quando a demonstração termina.
+  const video=document.getElementById('demoVideo');
+  const lock=document.getElementById('priceLock');
+  video.addEventListener('ended',()=>lock.classList.add('unlocked'));
+  document.getElementById('goDemo').addEventListener('click',()=>{
+    video.closest('.slide').scrollIntoView({behavior:'smooth'});
+    video.play();
+  });
+</script>
+</body>
+</html>
